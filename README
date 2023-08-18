@@ -1,20 +1,20 @@
-# SSVEP BCI Robot Car Control
+# 基于SSVEP的机器人小车控制
 
-## Project Overview
+## 项目概览
 
-This project implements robot car control based on SSVEP brain signals. Users wear a brain-computer interface headset and control the car by gazing at blinking blocks with different frequencies on the screen.
+本项目实现了基于SSVEP脑电信号对机器人小车的控制。用户佩戴脑电头环,通过注视屏幕上闪烁不同频率的方块来控制小车移动。
 
-The system consists of the following parts:
+系统由以下几部分组成:
 
-- SSVEP Stimulus: Display blinking blocks with different frequencies as visual stimuli, implemented with `ShiningCube.py`
-- Brain Signal Acquisition: Acquire raw data from BCI device via Bluetooth, implemented with `BluetoothReceive & LslSend.py`
-- Data Decoding: Decode the SSVEP frequency using CCA method, implemented with `new_decoder.py`
-- Car Control Program: Display car vision video stream, and send control commands based on decoded frequency, implemented with `CarControl_Client.py`
-- Data Receiver Test: `dataReceiver_ForTest.py`, used to test decoding performance without connecting the car
+- SSVEP刺激程序:屏幕上显示不同频率闪烁的方块,由`ShiningCube.py`实现
+- 脑电数据获取:通过蓝牙从脑电设备获取原始数据,由`BluetoothReceive & LslSend.py`实现
+- 数据解码:基于CCA算法解码出SSVEP对应的频率,由`new_decoder.py`实现
+- 小车控制程序:显示小车视角视频,并根据解码结果发送控制指令,由`CarControl_Client.py`实现
+- 数据接收测试程序:`dataReceiver_ForTest.py`,用于在不连接小车的情况下测试解码效果
 
-## Dependencies
+## 依赖库
 
-This project requires the following libraries:
+本项目需要以下库:
 
 - PyGame
 - OpenCV
@@ -22,37 +22,36 @@ This project requires the following libraries:
 - scikit-learn
 - RoboMaster API
 
-## Usage
+## 使用方法
 
-1. Run `ShiningCube.py` to display the SSVEP stimulus interface
-2. Run `BluetoothReceive & LslSend.py` to start receiving brain signal data via Bluetooth and sending via lsl
-3. Run `CarControl_Client.py` to display car vision and receive control commands
-4. Wear BCI headset, gaze at flashing blocks to control the car
+1. 运行`ShiningCube.py`显示SSVEP刺激界面
+2. 运行`BluetoothReceive & LslSend.py`开始通过蓝牙接收脑电数据并通过lsl发送
+3. 运行`CarControl_Client.py`显示小车视角视频并接收控制指令
+4. 佩戴脑电设备,注视闪烁方块控制小车移动
 
-Run `dataReceiver_ForTest.py` to test decoding performance without connecting the car.
+可以运行`dataReceiver_ForTest.py`在不连接小车的情况下测试解码效果。
 
-## File Description
+## 文件说明
 
-- `ShiningCube.py`: SSVEP stimulus UI
-- `BluetoothReceive & LslSend.py`: Bluetooth receiving and lsl sending
-- `new_decoder.py`: Brain signal decoding based on CCA
-- `CarControl_Client.py`: Car control program
-- `dataReceiver_ForTest.py`: Test program
+- `ShiningCube.py`: SSVEP刺激界面
+- `BluetoothReceive & LslSend.py`: 蓝牙接收和lsl发送
+- `new_decoder.py`: 基于CCA的脑电信号解码
+- `CarControl_Client.py`: 小车控制程序
+- `dataReceiver_ForTest.py`: 测试程序
 
-## Notes
+## 注意事项
 
-- Bluetooth device address needs to be configured properly
-- lsl stream settings should match decoding program
-- Car connection needs correct WiFi settings
+- 需要正确配置蓝牙设备地址以及接口
+- LSL流配置需与解码程序一致
+- 小车连接需要正确的WiFi信息
 
-## References
+## 参考资料
 
-- [CCA algorithm](https://ieeexplore.ieee.org/document/6165309)
+- [CCA算法](https://ieeexplore.ieee.org/document/6165309)
 - [RoboMaster API](https://lab.dji.com/developers/robomaster-s1)
 - [PyGame](https://www.pygame.org/docs/)
 - [OpenCV](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html)
 
-## Contact
+## 联系方式
 
-If you have any questions, please contact me via topanxal233@outlook.com
-
+如果有任何问题,请通过topanxal233@outlook.com与我联系。
