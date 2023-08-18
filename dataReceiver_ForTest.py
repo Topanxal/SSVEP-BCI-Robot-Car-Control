@@ -35,7 +35,10 @@ while True:
                 fs = 250
                 segment_length = 0.5
                 freq_list = [5,10,9,11,13]
+
+                # 此参数为阈值，目前并未采用
                 correlation_threshold = 0.38
+
                 matched_frequencies = cca_match(time_window.T, fs, segment_length, freq_list, correlation_threshold)
                 print("Most common frequency:", matched_frequencies)
                 #print(time.time() - start_time)
